@@ -19,7 +19,7 @@ a, button, input, label, textarea, img{
   cursor: none;
 }
 
-.customer-cursor{
+.custom-cursor{
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -28,8 +28,23 @@ a, button, input, label, textarea, img{
   z-index: 100;
   pointer-events: none;
 }
-.customer-cursor::after{
-  
+.custom-cursor::after{
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid black;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+@media (pointer:coarse) {
+  .custom-cursor {
+    display: none;
+  }
 }
 
 nav{
@@ -62,12 +77,8 @@ nav a::before{
 }
 nav a:hover::before{
   transform: scaleX(100%);
-}
-nav a:hover::before{
-  transform: scaleX(100%);
   background: red;
 }
-
 .hero{
   height: 100vh;
   min-height: 700px;
@@ -230,6 +241,24 @@ section h2 span{
 
 /* Animation */
 
+h2,
+.section-subtitle,
+.text-discover-content > *,
+.discover-main-img {
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: 
+  opacity 0.5s 0.3s ease-out,
+  transform 0.5s 0.3s ease-out;
+}
+
+h2.active,
+.section-subtitle.active,
+.text-discover-content > *.active ,
+.discover-main-img.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 /* Animation */
@@ -332,7 +361,8 @@ section h2 span{
 }
 
 
-
-img{
-  width: 10px;
+.trademark{
+  font-size: 10px;
+  margin-bottom: 20px;
+  text-align: center;
 }
